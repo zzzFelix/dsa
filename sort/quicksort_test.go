@@ -5,13 +5,24 @@ import (
 	"testing"
 )
 
+func IntComparator(a, b int) int {
+	switch {
+	case a > b:
+		return 1
+	case a < b:
+		return -1
+	default:
+		return 0
+	}
+}
+
 func TestSortIntegerSlice(t *testing.T) {
 	t.Run("should sort slice with negative and positive numbers", func(t *testing.T) {
 		// given
 		unsorted := []int{99, -2, 3, 4, -88213, 7890, 0, -9, 1, -7777}
 
 		// when
-		sorted := quicksort(unsorted)
+		sorted := quicksort(unsorted, IntComparator)
 
 		// then
 		expected := []int{-88213, -7777, -9, -2, 0, 1, 3, 4, 99, 7890}
@@ -133,7 +144,7 @@ func TestSortIntegerSlice(t *testing.T) {
 	})
 }
 
-func areSlicesEqual(a []int, b []int) bool {
+func areSlicesEqual(a, b []int) bool {
 	if len(a) != len(b) {
 		return false
 	}
@@ -146,6 +157,6 @@ func areSlicesEqual(a []int, b []int) bool {
 	return true
 }
 
-func formatDiff(expected []int, actual []int) string {
+func formatDiff(expected, actual []int) string {
 	return fmt.Sprintf("\n[EXPECTED] %v\n[ ACTUAL ] %v", expected, actual)
 }
