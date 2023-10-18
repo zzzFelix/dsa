@@ -5,17 +5,6 @@ import (
 	"testing"
 )
 
-func IntComparator(a, b int) int {
-	switch {
-	case a > b:
-		return 1
-	case a < b:
-		return -1
-	default:
-		return 0
-	}
-}
-
 func TestSortIntegerSlice(t *testing.T) {
 	t.Run("should sort slice with negative and positive numbers", func(t *testing.T) {
 		// given
@@ -36,7 +25,7 @@ func TestSortIntegerSlice(t *testing.T) {
 		unsorted := []int{-99, -2, -3, -4, -88213, -7890, -77, -9, -1, -7777}
 
 		// when
-		sorted := quicksort(unsorted)
+		sorted := quicksort(unsorted, IntComparator)
 
 		// then
 		expected := []int{-88213, -7890, -7777, -99, -77, -9, -4, -3, -2, -1}
@@ -50,7 +39,7 @@ func TestSortIntegerSlice(t *testing.T) {
 		unsorted := []int{99, 2, 99, 4, 99, 7890, 0, 99, 1, 99}
 
 		// when
-		sorted := quicksort(unsorted)
+		sorted := quicksort(unsorted, IntComparator)
 
 		// then
 		expected := []int{0, 1, 2, 4, 99, 99, 99, 99, 99, 7890}
@@ -64,7 +53,7 @@ func TestSortIntegerSlice(t *testing.T) {
 		unsorted := []int{1, 3, 5, 7, 9, 11, 13, 15, 17, 19}
 
 		// when
-		sorted := quicksort(unsorted)
+		sorted := quicksort(unsorted, IntComparator)
 
 		// then
 		expected := []int{1, 3, 5, 7, 9, 11, 13, 15, 17, 19}
@@ -78,7 +67,7 @@ func TestSortIntegerSlice(t *testing.T) {
 		unsorted := []int{19, 17, 15, 13, 11, 9, 7, 5, 3, 1}
 
 		// when
-		sorted := quicksort(unsorted)
+		sorted := quicksort(unsorted, IntComparator)
 
 		// then
 		expected := []int{1, 3, 5, 7, 9, 11, 13, 15, 17, 19}
@@ -92,7 +81,7 @@ func TestSortIntegerSlice(t *testing.T) {
 		unsorted := []int{}
 
 		// when
-		sorted := quicksort(unsorted)
+		sorted := quicksort(unsorted, IntComparator)
 
 		// then
 		expected := []int{}
@@ -106,7 +95,7 @@ func TestSortIntegerSlice(t *testing.T) {
 		unsorted := []int{1}
 
 		// when
-		sorted := quicksort(unsorted)
+		sorted := quicksort(unsorted, IntComparator)
 
 		// then
 		expected := []int{1}
@@ -120,7 +109,7 @@ func TestSortIntegerSlice(t *testing.T) {
 		unsorted := []int{2, 1}
 
 		// when
-		sorted := quicksort(unsorted)
+		sorted := quicksort(unsorted, IntComparator)
 
 		// then
 		expected := []int{1, 2}
@@ -134,7 +123,7 @@ func TestSortIntegerSlice(t *testing.T) {
 		unsorted := []int{2, 1, 3}
 
 		// when
-		sorted := quicksort(unsorted)
+		sorted := quicksort(unsorted, IntComparator)
 
 		// then
 		expected := []int{1, 2, 3}
