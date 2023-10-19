@@ -6,7 +6,7 @@ import (
 )
 
 func TestSortIntegerSlice(t *testing.T) {
-	var comp Comparator = IntComparator{}
+	var comp Comparator[int] = IntComparator{}
 
 	t.Run("should sort slice with negative and positive numbers", func(t *testing.T) {
 		// given

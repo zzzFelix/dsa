@@ -3,30 +3,24 @@ package sort
 // negative, if a < b
 // zero    , if a == b
 // positive, if a > b
-type Comparator interface {
-	Compare(a, b interface{}) int
+type Comparator[T any] interface {
+	Compare(a, b T) int
 }
 
 type IntComparator struct{}
 
-func (t IntComparator) Compare(a, b interface{}) int {
-	intA, okA := a.(int)
-	intB, okB := b.(int)
-	if !okA || !okB {
-		panic("Both parameters must be of type int")
-	}
+func (c IntComparator) Compare(a, b int) int {
 	switch {
-	case intA > intB:
+	case a > b:
 		return 1
-	case intA < intB:
+	case a < b:
 		return -1
 	default:
 		return 0
 	}
 }
 
-func quicksort[T any](input []T, comp Comparator) []T {
-	var comp2 Comparator = comp
+func quicksort[T any](input []T, comp Comparator[T]) []T {
 	if len(input) < 2 {
 		return input
 	}
@@ -38,9 +32,9 @@ func quicksort[T any](input []T, comp Comparator) []T {
 	greaterThan := []T{}
 
 	for _, val := range input {
-		if comp2.Compare(val, pivotElement) == 0 {
+		if comp.Compare(val, pivotElement) == 0 {
 			equalTo = append(equalTo, val)
-		} else if comp2.Compare(val, pivotElement) > 0 {
+		} else if comp.Compare(val, pivotElement) > 0 {
 			greaterThan = append(greaterThan, val)
 		} else {
 			lessThan = append(lessThan, val)
