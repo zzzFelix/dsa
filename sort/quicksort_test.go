@@ -1,12 +1,13 @@
 package sort
 
 import (
+	"dsa/compare"
 	"fmt"
 	"testing"
 )
 
 func TestSortIntegerSlice(t *testing.T) {
-	var comp Comparator[int] = IntComparator{}
+	var comp compare.Comparator[int] = compare.IntComparator{}
 
 	t.Run("should sort slice with negative and positive numbers", func(t *testing.T) {
 		// given

@@ -1,26 +1,8 @@
 package sort
 
-// negative, if a < b
-// zero    , if a == b
-// positive, if a > b
-type Comparator[T any] interface {
-	Compare(a, b T) int
-}
+import "dsa/compare"
 
-type IntComparator struct{}
-
-func (c IntComparator) Compare(a, b int) int {
-	switch {
-	case a > b:
-		return 1
-	case a < b:
-		return -1
-	default:
-		return 0
-	}
-}
-
-func quicksort[T any](input []T, comp Comparator[T]) []T {
+func quicksort[T any](input []T, comp compare.Comparator[T]) []T {
 	if len(input) < 2 {
 		return input
 	}
