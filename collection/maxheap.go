@@ -43,7 +43,7 @@ func (h *MaxHeap[T]) Peek() T {
 func (h *MaxHeap[T]) Pop() T {
 	size := len(h.items)
 	elem := h.items[size-1]
-	h.items[0] = h.items[size-1]
+	h.swap(0, size-1)
 	h.items = h.items[:size-1]
 	h.siftDown(0)
 	return elem.object
@@ -51,6 +51,12 @@ func (h *MaxHeap[T]) Pop() T {
 
 func (h *MaxHeap[T]) Size() int {
 	return len(h.items)
+}
+
+func (h *MaxHeap[T]) swap(i, j int) {
+	tmp := h.items[i]
+	h.items[i] = h.items[j]
+	h.items[j] = tmp
 }
 
 func (h *MaxHeap[T]) siftUp(i int) {
@@ -61,9 +67,7 @@ func (h *MaxHeap[T]) siftUp(i int) {
 	}
 	parent := h.items[parentI].priority
 	if current > parent {
-		tmp := h.items[parentI]
-		h.items[parentI] = h.items[i]
-		h.items[i] = tmp
+		h.swap(parentI, i)
 		h.siftUp(parentI)
 	}
 }
@@ -78,9 +82,7 @@ func (h *MaxHeap[T]) siftDown(i int) {
 	childA := h.items[childAI].priority
 	if childBI >= len(h.items) {
 		if current < childA {
-			tmp := h.items[childAI]
-			h.items[childAI] = h.items[i]
-			h.items[i] = tmp
+			h.swap(childAI, i)
 			h.siftDown(childAI)
 		}
 		return
@@ -88,21 +90,15 @@ func (h *MaxHeap[T]) siftDown(i int) {
 	childB := h.items[childBI].priority
 	if current < childA {
 		if childA < childB {
-			tmp := h.items[childBI]
-			h.items[childBI] = h.items[i]
-			h.items[i] = tmp
+			h.swap(childBI, i)
 			h.siftDown(childBI)
 		} else {
-			tmp := h.items[childAI]
-			h.items[childAI] = h.items[i]
-			h.items[i] = tmp
+			h.swap(childAI, i)
 			h.siftDown(childAI)
 		}
 
 	} else if current < childB {
-		tmp := h.items[childBI]
-		h.items[childBI] = h.items[i]
-		h.items[i] = tmp
+		h.swap(childBI, i)
 		h.siftDown(childBI)
 	}
 }
