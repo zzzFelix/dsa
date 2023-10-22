@@ -88,17 +88,11 @@ func (h *MaxHeap[T]) siftDown(i int) {
 		return
 	}
 	childB := h.items[childBI].priority
-	if current < childA {
-		if childA < childB {
-			h.swap(childBI, i)
-			h.siftDown(childBI)
-		} else {
-			h.swap(childAI, i)
-			h.siftDown(childAI)
-		}
-
-	} else if current < childB {
+	if childA < childB || current < childB {
 		h.swap(childBI, i)
 		h.siftDown(childBI)
+	} else {
+		h.swap(childAI, i)
+		h.siftDown(childAI)
 	}
 }
