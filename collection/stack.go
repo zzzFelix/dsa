@@ -19,3 +19,7 @@ func (s *Stack[T]) Push(item T) {
 func (s *Stack[T]) Peek() T {
 	return s.internal[len(s.internal)-1]
 }
+
+func (s *Stack[T]) Size() int {
+	return len(s.internal)
+}
