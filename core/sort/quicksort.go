@@ -1,6 +1,6 @@
 package sort
 
-import "dsa/compare"
+import "dsa/core/compare"
 
 func quicksort[T any](input []T, comp compare.Comparator[T]) []T {
 	if len(input) < 2 {

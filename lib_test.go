@@ -1,7 +1,7 @@
 package main
 
 import (
-	"dsa/collection"
+	"dsa/core/collection"
 	"testing"
 )
 

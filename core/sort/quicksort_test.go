@@ -1,7 +1,7 @@
 package sort
 
 import (
-	"dsa/compare"
+	"dsa/core/compare"
 	"fmt"
 	"testing"
 )
