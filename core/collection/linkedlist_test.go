@@ -12,7 +12,7 @@ func TestLinkedList(t *testing.T) {
 		node := ll.CreateNode(expVal)
 
 		// then
-		if node.next != nil || node.value != expVal {
+		if node.Next != nil || node.Value != expVal {
 			t.Fatal("node should not have a next node")
 		}
 	})
@@ -24,11 +24,11 @@ func TestLinkedList(t *testing.T) {
 		// when
 		node1 := ll.CreateNode(struct{}{})
 		node2 := ll.CreateNode(struct{}{})
-		node1.next = &node2
-		node2.next = &node1
+		node1.Next = &node2
+		node2.Next = &node1
 
 		// then
-		if node1.next != &node2 || node2.next != &node1 {
+		if node1.Next != &node2 || node2.Next != &node1 {
 			t.Fatal("linked list isn't circular")
 		}
 	})
@@ -40,10 +40,10 @@ func TestLinkedList(t *testing.T) {
 		// when
 		node1 := ll.CreateNode(1)
 		node2 := ll.CreateNode(2)
-		node1.next = &node2
+		node1.Next = &node2
 
 		// then
-		if node1.next.value != 2 {
+		if node1.Next.Value != 2 {
 			t.Fatal("couldn't access second node's value")
 		}
 	})
