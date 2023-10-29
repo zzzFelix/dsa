@@ -8,7 +8,7 @@ func TestMaxHeap(t *testing.T) {
 	t.Run("should insert element into heap", func(t *testing.T) {
 		// given
 		testS := "Hello world"
-		heap, _ := New[string]([]string{testS}, []int{1})
+		heap, _ := NewMaxHeap[string]([]string{testS}, []int{1})
 
 		// when
 		heap.Insert(testS, 99)
@@ -27,7 +27,7 @@ func TestMaxHeap(t *testing.T) {
 		// given
 
 		// when
-		heap, _ := New[string](
+		heap, _ := NewMaxHeap[string](
 			[]string{"low prio", "low prio", "low prio", "low prio", "HIGH PRIO", "low prio", "low prio"},
 			[]int{12, 44, 103, 12, 99999, 12, 13},
 		)
@@ -44,7 +44,7 @@ func TestMaxHeap(t *testing.T) {
 
 	t.Run("should add 5 elements and return highest priority", func(t *testing.T) {
 		// given
-		heap, _ := New[string]([]string{}, []int{})
+		heap, _ := NewMaxHeap[string]([]string{}, []int{})
 
 		// when
 		heap.Insert("low prio", 12)
@@ -68,10 +68,10 @@ func TestMaxHeap(t *testing.T) {
 	t.Run("should delete element", func(t *testing.T) {
 		// given
 		testS := "Hello world"
-		heap, _ := New[string]([]string{testS}, []int{1})
+		heap, _ := NewMaxHeap[string]([]string{testS}, []int{1})
 
 		// when
-		heap.Pop()
+		heap.Delete()
 
 		// then
 		if heap.Size() != 0 {
@@ -81,7 +81,7 @@ func TestMaxHeap(t *testing.T) {
 
 	t.Run("should delete all but one element, last element should be lowest prio", func(t *testing.T) {
 		// given
-		heap, _ := New[string](
+		heap, _ := NewMaxHeap[string](
 			[]string{"default prio", "default prio", "default prio", "LOWEST PRIO", "default prio", "default prio", "default prio"},
 			[]int{12, 44, 103, 0, 99999, 12, 13},
 		)
@@ -89,7 +89,7 @@ func TestMaxHeap(t *testing.T) {
 		// when
 		heapSize := heap.Size() - 1
 		for i := 0; i < heapSize; i++ {
-			heap.Pop()
+			heap.Delete()
 		}
 
 		// then
