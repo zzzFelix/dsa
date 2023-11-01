@@ -52,4 +52,22 @@ func TestStack(t *testing.T) {
 			t.Fatalf("did not peek right item. expected: %s, actual: %s", expected, actual)
 		}
 	})
+
+	t.Run("should push and pop the same item 10 times", func(t *testing.T) {
+		// given
+		stack := Stack[struct{}]{}
+
+		// when
+		for i := 0; i < 10; i++ {
+			stack.Push(struct{}{})
+		}
+		for i := 0; i < 10; i++ {
+			stack.Pop()
+		}
+
+		// then
+		if stack.Size() != 0 {
+			t.Fatal("stack should be empty")
+		}
+	})
 }
