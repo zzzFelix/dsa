@@ -9,8 +9,8 @@ func TestBinarySearch(t *testing.T) {
 	t.Run("should find middle number of 3", func(t *testing.T) {
 		// given
 		bSearch := BinarySearch[int]{
-			sortedItems: []int{1, 2, 3},
-			comparator:  compare.IntComparator{},
+			SortedItems: []int{1, 2, 3},
+			Comparator:  compare.IntComparator{},
 		}
 
 		// when
@@ -28,8 +28,8 @@ func TestBinarySearch(t *testing.T) {
 	t.Run("should find left item of 2", func(t *testing.T) {
 		// given
 		bSearch := BinarySearch[int]{
-			sortedItems: []int{1, 2},
-			comparator:  compare.IntComparator{},
+			SortedItems: []int{1, 2},
+			Comparator:  compare.IntComparator{},
 		}
 
 		// when
@@ -47,8 +47,8 @@ func TestBinarySearch(t *testing.T) {
 	t.Run("should find right item of 2", func(t *testing.T) {
 		// given
 		bSearch := BinarySearch[int]{
-			sortedItems: []int{1, 2},
-			comparator:  compare.IntComparator{},
+			SortedItems: []int{1, 2},
+			Comparator:  compare.IntComparator{},
 		}
 
 		// when
@@ -66,8 +66,8 @@ func TestBinarySearch(t *testing.T) {
 	t.Run("should find single item", func(t *testing.T) {
 		// given
 		bSearch := BinarySearch[int]{
-			sortedItems: []int{1},
-			comparator:  compare.IntComparator{},
+			SortedItems: []int{1},
+			Comparator:  compare.IntComparator{},
 		}
 
 		// when
@@ -82,11 +82,27 @@ func TestBinarySearch(t *testing.T) {
 		}
 	})
 
+	t.Run("should return error for single item", func(t *testing.T) {
+		// given
+		bSearch := BinarySearch[int]{
+			SortedItems: []int{1},
+			Comparator:  compare.IntComparator{},
+		}
+
+		// when
+		_, error := bSearch.Search(0)
+
+		// then
+		if error == nil {
+			t.Fatal("Search have thrown error")
+		}
+	})
+
 	t.Run("should find left-most item of many", func(t *testing.T) {
 		// given
 		bSearch := BinarySearch[int]{
-			sortedItems: []int{1, 2, 3, 4, 5, 6, 99, 102, 4065, 423423, 423424, 423425, 423426},
-			comparator:  compare.IntComparator{},
+			SortedItems: []int{1, 2, 3, 4, 5, 6, 99, 102, 4065, 423423, 423424, 423425, 423426},
+			Comparator:  compare.IntComparator{},
 		}
 
 		// when
@@ -104,8 +120,8 @@ func TestBinarySearch(t *testing.T) {
 	t.Run("should find right-most item of many", func(t *testing.T) {
 		// given
 		bSearch := BinarySearch[int]{
-			sortedItems: []int{1, 2, 3, 4, 5, 6, 99, 102, 4065, 423423, 423424, 423425, 423426},
-			comparator:  compare.IntComparator{},
+			SortedItems: []int{1, 2, 3, 4, 5, 6, 99, 102, 4065, 423423, 423424, 423425, 423426},
+			Comparator:  compare.IntComparator{},
 		}
 
 		// when
@@ -123,8 +139,8 @@ func TestBinarySearch(t *testing.T) {
 	t.Run("should find random item of many", func(t *testing.T) {
 		// given
 		bSearch := BinarySearch[int]{
-			sortedItems: []int{1, 2, 3, 4, 5, 6, 99, 102, 4065, 423423, 423424, 423425, 423426},
-			comparator:  compare.IntComparator{},
+			SortedItems: []int{1, 2, 3, 4, 5, 6, 99, 102, 4065, 423423, 423424, 423425, 423426},
+			Comparator:  compare.IntComparator{},
 		}
 
 		// when
@@ -142,8 +158,8 @@ func TestBinarySearch(t *testing.T) {
 	t.Run("should return error when item not in list", func(t *testing.T) {
 		// given
 		bSearch := BinarySearch[int]{
-			sortedItems: []int{1, 2, 3, 4, 5, 6, 99, 102, 4065, 423423, 423424, 423425, 423426},
-			comparator:  compare.IntComparator{},
+			SortedItems: []int{1, 2, 3, 4, 5, 6, 99, 102, 4065, 423423, 423424, 423425, 423426},
+			Comparator:  compare.IntComparator{},
 		}
 
 		// when
@@ -158,8 +174,8 @@ func TestBinarySearch(t *testing.T) {
 	t.Run("should return error when list empty", func(t *testing.T) {
 		// given
 		bSearch := BinarySearch[int]{
-			sortedItems: []int{},
-			comparator:  compare.IntComparator{},
+			SortedItems: []int{},
+			Comparator:  compare.IntComparator{},
 		}
 
 		// when
