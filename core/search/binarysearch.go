@@ -11,10 +11,10 @@ type BinarySearch[T any] struct {
 }
 
 func (b *BinarySearch[T]) Search(target T) (int, error) {
-	return b.binarySearch(target, 0, len(b.SortedItems))
+	return b.search(target, 0, len(b.SortedItems))
 }
 
-func (b *BinarySearch[T]) binarySearch(target T, left int, right int) (int, error) {
+func (b *BinarySearch[T]) search(target T, left int, right int) (int, error) {
 	totalIdxs := right - left
 	middleIndex := totalIdxs/2 + left
 	if totalIdxs < 0 || middleIndex < 0 || middleIndex > len(b.SortedItems)-1 {
@@ -27,8 +27,8 @@ func (b *BinarySearch[T]) binarySearch(target T, left int, right int) (int, erro
 		return middleIndex, nil
 	}
 	if compare < 0 {
-		return b.binarySearch(target, middleIndex+1, right)
+		return b.search(target, middleIndex+1, right)
 	} else {
-		return b.binarySearch(target, left, middleIndex-1)
+		return b.search(target, left, middleIndex-1)
 	}
 }
