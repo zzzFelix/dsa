@@ -4,6 +4,6 @@ import (
 	"dsa/core/common"
 )
 
-func cloneGraph(node *common.TreeNode[int]) *common.TreeNode[int] {
+func cloneGraph(node *common.Node[int]) *common.Node[int] {
 	return node
 }

@@ -8,14 +8,14 @@ import (
 func TestCloneGraph(t *testing.T) {
 	t.Run("test case 1", func(t *testing.T) {
 		// given
-		node4 := common.TreeNode[int]{Value: 4, Children: []common.TreeNode[int]{}}
-		node2 := common.TreeNode[int]{Value: 2, Children: []common.TreeNode[int]{}}
-		node3 := common.TreeNode[int]{Value: 3, Children: []common.TreeNode[int]{node2, node4}}
-		node1 := common.TreeNode[int]{Value: 1, Children: []common.TreeNode[int]{node2, node4}}
-		node2.Children = append(node2.Children, node1)
-		node2.Children = append(node2.Children, node3)
-		node4.Children = append(node4.Children, node1)
-		node4.Children = append(node4.Children, node3)
+		node4 := common.Node[int]{Value: 4, Neighbors: []common.Node[int]{}}
+		node2 := common.Node[int]{Value: 2, Neighbors: []common.Node[int]{}}
+		node3 := common.Node[int]{Value: 3, Neighbors: []common.Node[int]{node2, node4}}
+		node1 := common.Node[int]{Value: 1, Neighbors: []common.Node[int]{node2, node4}}
+		node2.Neighbors = append(node2.Neighbors, node1)
+		node2.Neighbors = append(node2.Neighbors, node3)
+		node4.Neighbors = append(node4.Neighbors, node1)
+		node4.Neighbors = append(node4.Neighbors, node3)
 
 		// when
 		actual := cloneGraph(&node1)
@@ -24,11 +24,11 @@ func TestCloneGraph(t *testing.T) {
 		if node1.Value != actual.Value {
 			t.Fatal("Graphs not equal")
 		}
-		for idx := range node1.Children {
-			if node1.Children[idx].Value != actual.Children[idx].Value {
+		for idx := range node1.Neighbors {
+			if node1.Neighbors[idx].Value != actual.Neighbors[idx].Value {
 				t.Fatal("Graphs not equal")
 			}
-			if &node1.Children[idx] == &actual.Children[idx] {
+			if &node1.Neighbors[idx] == &actual.Neighbors[idx] {
 				t.Fatal("Addresses are the same")
 			}
 		}
@@ -36,7 +36,7 @@ func TestCloneGraph(t *testing.T) {
 
 	t.Run("test case 2", func(t *testing.T) {
 		// given
-		node := common.TreeNode[int]{Value: 1, Children: []common.TreeNode[int]{}}
+		node := common.Node[int]{Value: 1, Neighbors: []common.Node[int]{}}
 
 		// when
 		actual := cloneGraph(&node)
