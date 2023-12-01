@@ -1,6 +1,6 @@
 package leetcode
 
-import "dsa/core/collection"
+import "github.com/zzzFelix/dsa/core/collection"
 
 func containsDuplicate(nums []int) bool {
 	set := make(collection.Set[int])

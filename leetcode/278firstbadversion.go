@@ -1,7 +1,7 @@
 package leetcode
 
 import (
-	bsearch "dsa/core/search"
+	bsearch "github.com/zzzFelix/dsa/core/search"
 )
 
 func firstBadVersion(n int, badVersion int) int {

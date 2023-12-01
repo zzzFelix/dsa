@@ -1,9 +1,10 @@
 package sort
 
 import (
-	"dsa/core/compare"
 	"fmt"
 	"testing"
+
+	"github.com/zzzFelix/dsa/core/compare"
 )
 
 func TestSortIntegerSlice(t *testing.T) {

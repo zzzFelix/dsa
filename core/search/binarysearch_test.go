@@ -1,8 +1,9 @@
 package search
 
 import (
-	"dsa/core/compare"
 	"testing"
+
+	"github.com/zzzFelix/dsa/core/compare"
 )
 
 func TestBinarySearch(t *testing.T) {

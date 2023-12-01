@@ -1,8 +1,9 @@
 package leetcode
 
 import (
-	"dsa/core/collection"
 	"testing"
+
+	"github.com/zzzFelix/dsa/core/collection"
 )
 
 func TestReverseLinkedList(t *testing.T) {

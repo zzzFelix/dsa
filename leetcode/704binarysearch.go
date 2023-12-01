@@ -1,8 +1,8 @@
 package leetcode
 
 import (
-	"dsa/core/compare"
-	dsasearch "dsa/core/search"
+	"github.com/zzzFelix/dsa/core/compare"
+	dsasearch "github.com/zzzFelix/dsa/core/search"
 )
 
 func search(nums []int, target int) int {

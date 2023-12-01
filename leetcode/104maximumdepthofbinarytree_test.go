@@ -1,8 +1,9 @@
 package leetcode
 
 import (
-	"dsa/core/common"
 	"testing"
+
+	"github.com/zzzFelix/dsa/core/common"
 )
 
 func TestMaxDepth(t *testing.T) {

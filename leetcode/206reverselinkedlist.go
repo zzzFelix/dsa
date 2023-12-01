@@ -1,6 +1,6 @@
 package leetcode
 
-import "dsa/core/collection"
+import "github.com/zzzFelix/dsa/core/collection"
 
 /**
  * https://leetcode.com/problems/reverse-linked-list/

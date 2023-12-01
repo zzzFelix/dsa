@@ -1,8 +1,9 @@
 package main
 
 import (
-	"dsa/core/collection"
 	"testing"
+
+	"github.com/zzzFelix/dsa/core/collection"
 )
 
 func TestSet(t *testing.T) {

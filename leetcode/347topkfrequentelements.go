@@ -1,7 +1,7 @@
 package leetcode
 
 import (
-	"dsa/core/collection"
+	"github.com/zzzFelix/dsa/core/collection"
 )
 
 func topKFrequent(nums []int, k int) []int {

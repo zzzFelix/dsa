@@ -1,6 +1,6 @@
 package leetcode
 
-import "dsa/core/common"
+import "github.com/zzzFelix/dsa/core/common"
 
 func maxDepth(root *common.BTreeNode[int]) int {
 	return maxDepthHelper(root, 0)

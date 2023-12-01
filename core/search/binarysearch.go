@@ -1,8 +1,9 @@
 package search
 
 import (
-	"dsa/core/compare"
 	"errors"
+
+	"github.com/zzzFelix/dsa/core/compare"
 )
 
 type BinarySearch[T any] struct {
