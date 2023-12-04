@@ -1,4 +1,4 @@
-package common
+package internal
 
 type BTreeNode[T comparable] struct {
 	Value T

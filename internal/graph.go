@@ -1,4 +1,4 @@
-package common
+package internal
 
 type Node[T comparable] struct {
 	Value     T

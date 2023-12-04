@@ -3,7 +3,7 @@ package search
 import (
 	"testing"
 
-	"github.com/zzzFelix/dsa/core/compare"
+	"github.com/zzzFelix/dsa/compare"
 )
 
 func TestBinarySearch(t *testing.T) {

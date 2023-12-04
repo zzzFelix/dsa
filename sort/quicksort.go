@@ -1,8 +1,8 @@
 package sort
 
-import "github.com/zzzFelix/dsa/core/compare"
+import "github.com/zzzFelix/dsa/compare"
 
-func quicksort[T any](input []T, comp compare.Comparator[T]) []T {
+func Quicksort[T any](input []T, comp compare.Comparator[T]) []T {
 	if len(input) < 2 {
 		return input
 	}
@@ -23,5 +23,5 @@ func quicksort[T any](input []T, comp compare.Comparator[T]) []T {
 		}
 	}
 
-	return append(append(quicksort(lessThan, comp), equalTo...), quicksort(greaterThan, comp)...)
+	return append(append(Quicksort(lessThan, comp), equalTo...), Quicksort(greaterThan, comp)...)
 }

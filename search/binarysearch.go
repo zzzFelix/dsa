@@ -3,7 +3,7 @@ package search
 import (
 	"errors"
 
-	"github.com/zzzFelix/dsa/core/compare"
+	"github.com/zzzFelix/dsa/compare"
 )
 
 type BinarySearch[T any] struct {
